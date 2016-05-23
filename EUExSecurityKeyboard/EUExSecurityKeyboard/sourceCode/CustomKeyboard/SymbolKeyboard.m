@@ -8,7 +8,7 @@
 
 #import "SymbolKeyboard.h"
 #import "EUtility.h"
-#import "Masonry.h"
+#import <Masonry/Masonry.h>
 @implementation SymbolKeyboard
 - (id)initWithFrame:(CGRect)frame keyboardDescription:(NSString*)keyboardDescription
 {

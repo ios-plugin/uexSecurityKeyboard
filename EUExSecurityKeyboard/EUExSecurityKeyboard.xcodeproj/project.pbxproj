@@ -7,39 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		095C8A221C76DDE5008E373A /* EUExSecurityKeyboard.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 095C8A211C76DDE5008E373A /* EUExSecurityKeyboard.h */; };
+		094CBCFC1CF292FC0069E782 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 094CBCFB1CF292FC0069E782 /* Masonry.framework */; };
+		094CBCFD1CF293230069E782 /* Masonry.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 094CBCFB1CF292FC0069E782 /* Masonry.framework */; };
 		095C8A241C76DDE5008E373A /* EUExSecurityKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 095C8A231C76DDE5008E373A /* EUExSecurityKeyboard.m */; };
 		0972A4C31C803EC50092F525 /* CustomBigCharKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4961C803EC50092F525 /* CustomBigCharKeyboard.m */; };
 		0972A4C41C803EC50092F525 /* CustomCharKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4981C803EC50092F525 /* CustomCharKeyboard.m */; };
 		0972A4C51C803EC50092F525 /* CustomNumberKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A49A1C803EC50092F525 /* CustomNumberKeyboard.m */; };
 		0972A4C61C803EC50092F525 /* PureNumberKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A49C1C803EC50092F525 /* PureNumberKeyboard.m */; };
 		0972A4C71C803EC50092F525 /* SymbolKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A49E1C803EC50092F525 /* SymbolKeyboard.m */; };
-		0972A4C81C803EC50092F525 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4AB1C803EC50092F525 /* MASCompositeConstraint.m */; };
-		0972A4C91C803EC50092F525 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4AE1C803EC50092F525 /* MASConstraint.m */; };
-		0972A4CA1C803EC50092F525 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4B01C803EC50092F525 /* MASConstraintMaker.m */; };
-		0972A4CB1C803EC50092F525 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4B21C803EC50092F525 /* MASLayoutConstraint.m */; };
-		0972A4CC1C803EC50092F525 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4B61C803EC50092F525 /* MASViewAttribute.m */; };
-		0972A4CD1C803EC50092F525 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4B81C803EC50092F525 /* MASViewConstraint.m */; };
-		0972A4CE1C803EC50092F525 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4BA1C803EC50092F525 /* NSArray+MASAdditions.m */; };
-		0972A4CF1C803EC50092F525 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4BD1C803EC50092F525 /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		0972A4D01C803EC50092F525 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4BF1C803EC50092F525 /* View+MASAdditions.m */; };
-		0972A4D11C803EC50092F525 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A4C21C803EC50092F525 /* ViewController+MASAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		095C8A1C1C76DDE5008E373A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
+			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				095C8A221C76DDE5008E373A /* EUExSecurityKeyboard.h in CopyFiles */,
+				094CBCFD1CF293230069E782 /* Masonry.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		094CBCFB1CF292FC0069E782 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Masonry.framework; sourceTree = "<group>"; };
 		095C8A1E1C76DDE5008E373A /* libuexSecurityKeyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexSecurityKeyboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		095C8A211C76DDE5008E373A /* EUExSecurityKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EUExSecurityKeyboard.h; sourceTree = "<group>"; };
 		095C8A231C76DDE5008E373A /* EUExSecurityKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EUExSecurityKeyboard.m; sourceTree = "<group>"; };
@@ -65,31 +57,6 @@
 		0972A4A61C803EC50092F525 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
 		0972A4A71C803EC50092F525 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
 		0972A4A81C803EC50092F525 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		0972A4AA1C803EC50092F525 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
-		0972A4AB1C803EC50092F525 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
-		0972A4AC1C803EC50092F525 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
-		0972A4AD1C803EC50092F525 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
-		0972A4AE1C803EC50092F525 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
-		0972A4AF1C803EC50092F525 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
-		0972A4B01C803EC50092F525 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
-		0972A4B11C803EC50092F525 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
-		0972A4B21C803EC50092F525 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
-		0972A4B31C803EC50092F525 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
-		0972A4B41C803EC50092F525 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
-		0972A4B51C803EC50092F525 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
-		0972A4B61C803EC50092F525 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
-		0972A4B71C803EC50092F525 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
-		0972A4B81C803EC50092F525 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
-		0972A4B91C803EC50092F525 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		0972A4BA1C803EC50092F525 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		0972A4BB1C803EC50092F525 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		0972A4BC1C803EC50092F525 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		0972A4BD1C803EC50092F525 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		0972A4BE1C803EC50092F525 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
-		0972A4BF1C803EC50092F525 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
-		0972A4C01C803EC50092F525 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		0972A4C11C803EC50092F525 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
-		0972A4C21C803EC50092F525 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				094CBCFC1CF292FC0069E782 /* Masonry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,9 +112,9 @@
 		0972A4931C803EC50092F525 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				094CBCFB1CF292FC0069E782 /* Masonry.framework */,
 				0972A4941C803EC50092F525 /* CustomKeyboard */,
 				0972A49F1C803EC50092F525 /* JSON */,
-				0972A4A91C803EC50092F525 /* Masonry */,
 			);
 			name = sourceCode;
 			path = EUExSecurityKeyboard/sourceCode;
@@ -183,38 +151,6 @@
 				0972A4A81C803EC50092F525 /* SBJsonWriter.h */,
 			);
 			path = JSON;
-			sourceTree = "<group>";
-		};
-		0972A4A91C803EC50092F525 /* Masonry */ = {
-			isa = PBXGroup;
-			children = (
-				0972A4AA1C803EC50092F525 /* MASCompositeConstraint.h */,
-				0972A4AB1C803EC50092F525 /* MASCompositeConstraint.m */,
-				0972A4AC1C803EC50092F525 /* MASConstraint+Private.h */,
-				0972A4AD1C803EC50092F525 /* MASConstraint.h */,
-				0972A4AE1C803EC50092F525 /* MASConstraint.m */,
-				0972A4AF1C803EC50092F525 /* MASConstraintMaker.h */,
-				0972A4B01C803EC50092F525 /* MASConstraintMaker.m */,
-				0972A4B11C803EC50092F525 /* MASLayoutConstraint.h */,
-				0972A4B21C803EC50092F525 /* MASLayoutConstraint.m */,
-				0972A4B31C803EC50092F525 /* Masonry.h */,
-				0972A4B41C803EC50092F525 /* MASUtilities.h */,
-				0972A4B51C803EC50092F525 /* MASViewAttribute.h */,
-				0972A4B61C803EC50092F525 /* MASViewAttribute.m */,
-				0972A4B71C803EC50092F525 /* MASViewConstraint.h */,
-				0972A4B81C803EC50092F525 /* MASViewConstraint.m */,
-				0972A4B91C803EC50092F525 /* NSArray+MASAdditions.h */,
-				0972A4BA1C803EC50092F525 /* NSArray+MASAdditions.m */,
-				0972A4BB1C803EC50092F525 /* NSArray+MASShorthandAdditions.h */,
-				0972A4BC1C803EC50092F525 /* NSLayoutConstraint+MASDebugAdditions.h */,
-				0972A4BD1C803EC50092F525 /* NSLayoutConstraint+MASDebugAdditions.m */,
-				0972A4BE1C803EC50092F525 /* View+MASAdditions.h */,
-				0972A4BF1C803EC50092F525 /* View+MASAdditions.m */,
-				0972A4C01C803EC50092F525 /* View+MASShorthandAdditions.h */,
-				0972A4C11C803EC50092F525 /* ViewController+MASAdditions.h */,
-				0972A4C21C803EC50092F525 /* ViewController+MASAdditions.m */,
-			);
-			path = Masonry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,19 +209,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0972A4C91C803EC50092F525 /* MASConstraint.m in Sources */,
-				0972A4CC1C803EC50092F525 /* MASViewAttribute.m in Sources */,
-				0972A4D11C803EC50092F525 /* ViewController+MASAdditions.m in Sources */,
-				0972A4CE1C803EC50092F525 /* NSArray+MASAdditions.m in Sources */,
 				0972A4C41C803EC50092F525 /* CustomCharKeyboard.m in Sources */,
-				0972A4CD1C803EC50092F525 /* MASViewConstraint.m in Sources */,
-				0972A4CB1C803EC50092F525 /* MASLayoutConstraint.m in Sources */,
 				0972A4C31C803EC50092F525 /* CustomBigCharKeyboard.m in Sources */,
 				0972A4C71C803EC50092F525 /* SymbolKeyboard.m in Sources */,
-				0972A4D01C803EC50092F525 /* View+MASAdditions.m in Sources */,
-				0972A4C81C803EC50092F525 /* MASCompositeConstraint.m in Sources */,
-				0972A4CF1C803EC50092F525 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				0972A4CA1C803EC50092F525 /* MASConstraintMaker.m in Sources */,
 				0972A4C51C803EC50092F525 /* CustomNumberKeyboard.m in Sources */,
 				0972A4C61C803EC50092F525 /* PureNumberKeyboard.m in Sources */,
 				095C8A241C76DDE5008E373A /* EUExSecurityKeyboard.m in Sources */,
@@ -379,6 +305,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = $SRCROOT/uexSecurityKeyboard;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EUExSecurityKeyboard/sourceCode",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = uexSecurityKeyboard;
 				SKIP_INSTALL = YES;
@@ -389,6 +319,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = $SRCROOT/uexSecurityKeyboard;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EUExSecurityKeyboard/sourceCode",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = uexSecurityKeyboard;
 				SKIP_INSTALL = YES;
