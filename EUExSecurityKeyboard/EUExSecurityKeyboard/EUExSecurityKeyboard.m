@@ -11,8 +11,15 @@
 #import "JSON.h"
 
 @implementation EUExSecurityKeyboard
--(id)initWithBrwView:(EBrowserView *) eInBrwView {
-    if (self = [super initWithBrwView:eInBrwView]) {
+//-(id)initWithBrwView:(EBrowserView *) eInBrwView {
+//    if (self = [super initWithBrwView:eInBrwView]) {
+//        self.keyboardType = 0;
+//        _keyDict = [NSMutableDictionary dictionary];
+//    }
+//    return self;
+//}
+-(id)initWithWebViewEngine:(id<AppCanWebViewEngineObject>)engine{
+    if (self = [super initWithWebViewEngine:engine]) {
         self.keyboardType = 0;
         _keyDict = [NSMutableDictionary dictionary];
     }
@@ -84,7 +91,8 @@
     [keys addObject:[NSString stringWithFormat:@"%d",(int)tag]];
     self.textField = [_keyDict objectForKey:[keys lastObject]];
     self.textField.tag = [[keys lastObject] intValue];
-    [EUtility brwView:meBrwView addSubview:self.textField];
+    //[EUtility brwView:meBrwView addSubview:self.textField];
+    [[self.webViewEngine webView] addSubview:self.textField];
     if (self.keyboardType == 1) {
         self.textField.inputView = self.numberKeyboardView;
     }
@@ -135,63 +143,72 @@
     if (tag == 10) {
         self.textField.inputView = nil;
         [self.textField removeFromSuperview];
-        [EUtility brwView:meBrwView addSubview:self.textField];
+        //[EUtility brwView:meBrwView addSubview:self.textField];
+         [[self.webViewEngine webView] addSubview:self.textField];
         self.textField.inputView = self.charKeyboardView;
         [self.textField becomeFirstResponder];
     }
     if (tag == 128 ) {
         self.textField.inputView = nil;
         [self.textField removeFromSuperview];
-        [EUtility brwView:meBrwView addSubview:self.textField];
+        //[EUtility brwView:meBrwView addSubview:self.textField];
+         [[self.webViewEngine webView] addSubview:self.textField];
         self.textField.inputView = self.numberKeyboardView;
         [self.textField becomeFirstResponder];
     }
     if (tag == 131 ) {
         self.textField.inputView = nil;
         [self.textField removeFromSuperview];
-        [EUtility brwView:meBrwView addSubview:self.textField];
+        //[EUtility brwView:meBrwView addSubview:self.textField];
+         [[self.webViewEngine webView] addSubview:self.textField];
         self.textField.inputView = self.symbolKeyboardView;
         [self.textField becomeFirstResponder];
     }
     if (tag == 126 ) {
         self.textField.inputView = nil;
         [self.textField removeFromSuperview];
-        [EUtility brwView:meBrwView addSubview:self.textField];
+        //[EUtility brwView:meBrwView addSubview:self.textField];
+         [[self.webViewEngine webView] addSubview:self.textField];
         self.textField.inputView = self.bigCharKeyboardView;
         [self.textField becomeFirstResponder];
     }
     if (tag == 226) {
         self.textField.inputView = nil;
         [self.textField removeFromSuperview];
-        [EUtility brwView:meBrwView addSubview:self.textField];
+        //[EUtility brwView:meBrwView addSubview:self.textField];
+         [[self.webViewEngine webView] addSubview:self.textField];
         self.textField.inputView = self.charKeyboardView;
         [self.textField becomeFirstResponder];
     }
     if (tag == 228) {
         self.textField.inputView = nil;
         [self.textField removeFromSuperview];
-        [EUtility brwView:meBrwView addSubview:self.textField];
+        //[EUtility brwView:meBrwView addSubview:self.textField];
+         [[self.webViewEngine webView] addSubview:self.textField];
         self.textField.inputView = self.numberKeyboardView;
         [self.textField becomeFirstResponder];
     }
     if (tag == 231 ) {
         self.textField.inputView = nil;
         [self.textField removeFromSuperview];
-        [EUtility brwView:meBrwView addSubview:self.textField];
+        //[EUtility brwView:meBrwView addSubview:self.textField];
+         [[self.webViewEngine webView] addSubview:self.textField];
         self.textField.inputView = self.symbolKeyboardView;
         [self.textField becomeFirstResponder];
     }
     if (tag == 338) {
         self.textField.inputView = nil;
         [self.textField removeFromSuperview];
-        [EUtility brwView:meBrwView addSubview:self.textField];
+        //[EUtility brwView:meBrwView addSubview:self.textField];
+         [[self.webViewEngine webView] addSubview:self.textField];
         self.textField.inputView = self.numberKeyboardView;
         [self.textField becomeFirstResponder];
     }
     if (tag == 339) {
         self.textField.inputView = nil;
         [self.textField removeFromSuperview];
-        [EUtility brwView:meBrwView addSubview:self.textField];
+        //[EUtility brwView:meBrwView addSubview:self.textField];
+         [[self.webViewEngine webView] addSubview:self.textField];
         self.textField.inputView = self.self.charKeyboardView;
         [self.textField becomeFirstResponder];
     }
@@ -221,7 +238,7 @@
     
     
 }
--(void)getContent:(NSMutableArray *)inArguments {
+-(NSArray*)getContent:(NSMutableArray *)inArguments {
     NSDictionary *contentDic = [NSDictionary dictionary];
     NSMutableArray *contentArr = [NSMutableArray array];
     NSString *contentStr = nil;
@@ -248,7 +265,9 @@
         
     }
     contentStr = [contentArr JSONFragment];
-    NSString *jsString = [NSString stringWithFormat:@"uexSecurityKeyboard.cbGetContent('%@');",contentStr];
-    [EUtility brwView:meBrwView evaluateScript:jsString];
+    //NSString *jsString = [NSString stringWithFormat:@"uexSecurityKeyboard.cbGetContent('%@');",contentStr];
+    //[EUtility brwView:meBrwView evaluateScript:jsString];
+    [self.webViewEngine callbackWithFunctionKeyPath:@"uexSecurityKeyboard.cbGetContent" arguments:ACArgsPack(contentStr)];
+    return [contentArr copy];
 }
 @end

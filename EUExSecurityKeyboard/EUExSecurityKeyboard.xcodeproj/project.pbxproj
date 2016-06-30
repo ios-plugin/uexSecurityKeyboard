@@ -15,6 +15,7 @@
 		0972A4C51C803EC50092F525 /* CustomNumberKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A49A1C803EC50092F525 /* CustomNumberKeyboard.m */; };
 		0972A4C61C803EC50092F525 /* PureNumberKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A49C1C803EC50092F525 /* PureNumberKeyboard.m */; };
 		0972A4C71C803EC50092F525 /* SymbolKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A49E1C803EC50092F525 /* SymbolKeyboard.m */; };
+		2153D5191D22619D00A846F3 /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2153D5181D22619D00A846F3 /* AppCanKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,7 +36,6 @@
 		095C8A1E1C76DDE5008E373A /* libuexSecurityKeyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexSecurityKeyboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		095C8A211C76DDE5008E373A /* EUExSecurityKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EUExSecurityKeyboard.h; sourceTree = "<group>"; };
 		095C8A231C76DDE5008E373A /* EUExSecurityKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EUExSecurityKeyboard.m; sourceTree = "<group>"; };
-		0972A4901C803DD30092F525 /* EUExBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBase.h; sourceTree = "<group>"; };
 		0972A4911C803DD30092F525 /* EUExBaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBaseDefine.h; sourceTree = "<group>"; };
 		0972A4921C803DD30092F525 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
 		0972A4951C803EC50092F525 /* CustomBigCharKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBigCharKeyboard.h; sourceTree = "<group>"; };
@@ -57,6 +57,7 @@
 		0972A4A61C803EC50092F525 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
 		0972A4A71C803EC50092F525 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
 		0972A4A81C803EC50092F525 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		2153D5181D22619D00A846F3 /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2153D5191D22619D00A846F3 /* AppCanKit.framework in Frameworks */,
 				094CBCFC1CF292FC0069E782 /* Masonry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,7 +103,6 @@
 		0972A48F1C803DD30092F525 /* engineHeader */ = {
 			isa = PBXGroup;
 			children = (
-				0972A4901C803DD30092F525 /* EUExBase.h */,
 				0972A4911C803DD30092F525 /* EUExBaseDefine.h */,
 				0972A4921C803DD30092F525 /* EUtility.h */,
 			);
@@ -112,6 +113,7 @@
 		0972A4931C803EC50092F525 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				2153D5181D22619D00A846F3 /* AppCanKit.framework */,
 				094CBCFB1CF292FC0069E782 /* Masonry.framework */,
 				0972A4941C803EC50092F525 /* CustomKeyboard */,
 				0972A49F1C803EC50092F525 /* JSON */,
