@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
     <plugin
-        uexName="uexSecurityKeyboard" version="4.0.0" build="2">
-         <info>2:支持引擎4.0，函数入参</info>
-         <build>1:修复一处与nblistview相冲突的问题</build>
-         <build>0:带安全键盘的输入框插件</build>
+        uexName="uexSecurityKeyboard" version="4.0.0" build="0">
+         <info>0:带安全键盘的输入框4.0插件</info>
     </plugin>
 </uexplugins>

@@ -8,7 +8,7 @@
 
 #import "EUExSecurityKeyboard.h"
 #import "EUtility.h"
-#import "JSON.h"
+
 
 @implementation EUExSecurityKeyboard
 //-(id)initWithBrwView:(EBrowserView *) eInBrwView {
@@ -70,7 +70,7 @@
     NSString *jsonStr = nil;
     if (inArguments.count > 0) {
         jsonStr = [inArguments objectAtIndex:0];
-        self.jsonDict = [jsonStr JSONValue];//将JSON类型的字符串转化为可变字典
+        self.jsonDict = [jsonStr ac_JSONValue];//将JSON类型的字符串转化为可变字典
     }else{
         return;
     }
@@ -79,6 +79,7 @@
     float y = [[self.jsonDict objectForKey:@"y"] floatValue];
     float width = [[self.jsonDict objectForKey:@"width"] floatValue];
     float height = [[self.jsonDict objectForKey:@"height"] floatValue];
+    BOOL isScroll = [[self.jsonDict objectForKey:@"isScrollWithWeb"] boolValue];
     self.keyboardDescription = [self.jsonDict objectForKey:@"keyboardDescription"] ;
     self.keyboardType = [[self.jsonDict objectForKey:@"keyboardType"] intValue];
     UITextField* textField = [[UITextField alloc]initWithFrame:CGRectMake(x, y, width, height)];
@@ -92,7 +93,12 @@
     self.textField = [_keyDict objectForKey:[keys lastObject]];
     self.textField.tag = [[keys lastObject] intValue];
     //[EUtility brwView:meBrwView addSubview:self.textField];
-    [[self.webViewEngine webView] addSubview:self.textField];
+    if (isScroll) {
+        [[self.webViewEngine webScrollView] addSubview:self.textField];
+    } else {
+        [[self.webViewEngine webView] addSubview:self.textField];
+    }
+    
     if (self.keyboardType == 1) {
         self.textField.inputView = self.numberKeyboardView;
     }
@@ -218,7 +224,7 @@
 -(void)close:(NSMutableArray *)inArguments {
     if (inArguments.count > 0) {
         NSString * idStr = [inArguments objectAtIndex:0];
-        NSArray* idArr = [idStr JSONValue];
+        NSArray* idArr = [idStr ac_JSONValue];
         for (NSNumber *num in idArr) {
             NSString *numStr = [NSString stringWithFormat:@"%d",[num intValue]];
             self.textField = [_keyDict objectForKey:numStr];
@@ -244,7 +250,7 @@
     NSString *contentStr = nil;
     if (inArguments.count > 0) {
         NSString * idStr = [inArguments objectAtIndex:0];
-        NSArray* idArr = [idStr JSONValue];
+        NSArray* idArr = [idStr ac_JSONValue];
         for (NSNumber *num in idArr) {
             NSString *numStr = [NSString stringWithFormat:@"%d",[num intValue]];
             self.textField = [_keyDict objectForKey:numStr];
@@ -264,7 +270,7 @@
         }
         
     }
-    contentStr = [contentArr JSONFragment];
+    contentStr = [contentArr ac_JSONFragment];
     //NSString *jsString = [NSString stringWithFormat:@"uexSecurityKeyboard.cbGetContent('%@');",contentStr];
     //[EUtility brwView:meBrwView evaluateScript:jsString];
     [self.webViewEngine callbackWithFunctionKeyPath:@"uexSecurityKeyboard.cbGetContent" arguments:ACArgsPack(contentStr)];

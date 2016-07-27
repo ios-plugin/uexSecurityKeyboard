@@ -48,15 +48,6 @@
 		0972A49C1C803EC50092F525 /* PureNumberKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PureNumberKeyboard.m; sourceTree = "<group>"; };
 		0972A49D1C803EC50092F525 /* SymbolKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolKeyboard.h; sourceTree = "<group>"; };
 		0972A49E1C803EC50092F525 /* SymbolKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolKeyboard.m; sourceTree = "<group>"; };
-		0972A4A01C803EC50092F525 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		0972A4A11C803EC50092F525 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
-		0972A4A21C803EC50092F525 /* MD5Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Digest.h; sourceTree = "<group>"; };
-		0972A4A31C803EC50092F525 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		0972A4A41C803EC50092F525 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		0972A4A51C803EC50092F525 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		0972A4A61C803EC50092F525 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		0972A4A71C803EC50092F525 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		0972A4A81C803EC50092F525 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		2153D5181D22619D00A846F3 /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,7 +107,6 @@
 				2153D5181D22619D00A846F3 /* AppCanKit.framework */,
 				094CBCFB1CF292FC0069E782 /* Masonry.framework */,
 				0972A4941C803EC50092F525 /* CustomKeyboard */,
-				0972A49F1C803EC50092F525 /* JSON */,
 			);
 			name = sourceCode;
 			path = EUExSecurityKeyboard/sourceCode;
@@ -137,22 +127,6 @@
 				0972A49E1C803EC50092F525 /* SymbolKeyboard.m */,
 			);
 			path = CustomKeyboard;
-			sourceTree = "<group>";
-		};
-		0972A49F1C803EC50092F525 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				0972A4A01C803EC50092F525 /* JSON.h */,
-				0972A4A11C803EC50092F525 /* JSONParser.h */,
-				0972A4A21C803EC50092F525 /* MD5Digest.h */,
-				0972A4A31C803EC50092F525 /* NSObject+SBJSON.h */,
-				0972A4A41C803EC50092F525 /* NSString+SBJSON.h */,
-				0972A4A51C803EC50092F525 /* SBJSON.h */,
-				0972A4A61C803EC50092F525 /* SBJsonBase.h */,
-				0972A4A71C803EC50092F525 /* SBJsonParser.h */,
-				0972A4A81C803EC50092F525 /* SBJsonWriter.h */,
-			);
-			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
