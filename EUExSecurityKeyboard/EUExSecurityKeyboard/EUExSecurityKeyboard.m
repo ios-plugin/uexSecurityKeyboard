@@ -72,6 +72,7 @@
     float y = [[self.jsonDict objectForKey:@"y"] floatValue];
     float width = [[self.jsonDict objectForKey:@"width"] floatValue];
     float height = [[self.jsonDict objectForKey:@"height"] floatValue];
+    BOOL isScroll = [[self.jsonDict objectForKey:@"isScrollWithWeb"] boolValue];
     self.keyboardDescription = [self.jsonDict objectForKey:@"keyboardDescription"] ;
     self.keyboardType = [[self.jsonDict objectForKey:@"keyboardType"] intValue];
     UITextField* textField = [[UITextField alloc]initWithFrame:CGRectMake(x, y, width, height)];
@@ -84,7 +85,12 @@
     [keys addObject:[NSString stringWithFormat:@"%d",(int)tag]];
     self.textField = [_keyDict objectForKey:[keys lastObject]];
     self.textField.tag = [[keys lastObject] intValue];
-    [EUtility brwView:meBrwView addSubview:self.textField];
+    if (isScroll){
+        [EUtility brwView:meBrwView addSubviewToScrollView:self.textField];
+    }else{
+        [EUtility brwView:meBrwView addSubview:self.textField];
+    }
+    
     if (self.keyboardType == 1) {
         self.textField.inputView = self.numberKeyboardView;
     }

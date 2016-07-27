@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
     <plugin
-        uexName="uexSecurityKeyboard" version="3.0.1" build="1">
-         <info>1:修复一处与nblistview相冲突的问题</info>
+        uexName="uexSecurityKeyboard" version="3.0.2" build="2">
+         <info>2:新增isScrollWithWeb参数</info>
+         <build>1:修复一处与nblistview相冲突的问题</build>
          <build>0:带安全键盘的输入框插件</build>
     </plugin>
 </uexplugins>
