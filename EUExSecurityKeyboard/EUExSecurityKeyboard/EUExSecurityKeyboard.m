@@ -298,8 +298,13 @@ static inline NSString * newUUID(){
 }
 -(NSString*)getData:(NSMutableArray *)inArguments {
     ACArgsUnpack(NSString* numStr) = inArguments;
-    self.textField = [_keyDict objectForKey:numStr];
-    return self.textField.text;
+    if ([_keyDict objectForKey:numStr]) {
+        self.textField = [_keyDict objectForKey:numStr];
+        return self.textField.text;
+    }else{
+        return nil;
+    }
+    
     
 }
 
