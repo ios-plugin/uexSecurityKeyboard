@@ -225,14 +225,24 @@ static inline NSString * newUUID(){
 
 -(void)close:(NSMutableArray *)inArguments {
     if (inArguments.count > 0) {
-        ACArgsUnpack(NSArray* idArr) = inArguments;
-        for (id num in idArr) {
-            NSString *numStr = stringArg(num);
+        NSArray *idArr = ac_arrayArg(inArguments[0]);
+        if (idArr) {
+            ACArgsUnpack(NSArray* idArr) = inArguments;
+            for (id num in idArr) {
+                NSString *numStr = stringArg(num);
+                self.textField = [_keyDict objectForKey:numStr];
+                self.textField.inputView = nil;
+                [self.textField removeFromSuperview];
+                [_keyDict removeObjectForKey:numStr];
+            }
+        }else{
+            ACArgsUnpack(NSString* numStr) = inArguments;
             self.textField = [_keyDict objectForKey:numStr];
             self.textField.inputView = nil;
             [self.textField removeFromSuperview];
             [_keyDict removeObjectForKey:numStr];
         }
+        
         
     }else{
         NSArray *keys = [_keyDict allKeys];
@@ -251,13 +261,22 @@ static inline NSString * newUUID(){
     NSMutableArray *contentArr = [NSMutableArray array];
     NSString *contentStr = nil;
     if (inArguments.count > 0) {
-        ACArgsUnpack(NSArray* idArr) = inArguments;
-        for (id num in idArr) {
-            NSString *numStr = stringArg(num);
+        NSArray *idArr = ac_arrayArg(inArguments[0]);
+        if (idArr) {
+            ACArgsUnpack(NSArray* idArr) = inArguments;
+            for (id num in idArr) {
+                NSString *numStr = stringArg(num);
+                self.textField = [_keyDict objectForKey:numStr];
+                contentDic = @{@"content":self.textField.text,@"id":numStr};
+                [contentArr addObject:contentDic];
+            }
+        }else{
+            ACArgsUnpack(NSString* numStr) = inArguments;
             self.textField = [_keyDict objectForKey:numStr];
             contentDic = @{@"content":self.textField.text,@"id":numStr};
             [contentArr addObject:contentDic];
         }
+        
         
         
         
@@ -277,4 +296,11 @@ static inline NSString * newUUID(){
     [self.webViewEngine callbackWithFunctionKeyPath:@"uexSecurityKeyboard.cbGetContent" arguments:ACArgsPack(contentStr)];
     return [contentArr copy];
 }
+-(NSString*)getData:(NSMutableArray *)inArguments {
+    ACArgsUnpack(NSString* numStr) = inArguments;
+    self.textField = [_keyDict objectForKey:numStr];
+    return self.textField.text;
+    
+}
+
 @end

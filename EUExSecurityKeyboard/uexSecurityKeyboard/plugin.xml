@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
     <plugin name="uexSecurityKeyboard">
-        <method name="open"></method>
+        <method name="open" sync = "true"></method>
         <method name="close"></method>
         <method name="getContent" sync = "true"></method>
+        
+         <method name="getData" sync = "true"></method>
     </plugin>
 </uexplugins>
