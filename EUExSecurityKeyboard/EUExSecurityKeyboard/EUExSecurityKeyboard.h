@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <AppCanKit/AppCanKit.h>
 #import <UIKit/UIKit.h>
+#import "CustomUITextField.h"
 #import "CustomNumberKeyboard.h"
 #import "CustomCharKeyboard.h"
 #import "PureNumberKeyboard.h"
 #import "CustomBigCharKeyboard.h"
 #import "SymbolKeyboard.h"
 @interface EUExSecurityKeyboard :EUExBase<CustomNumberKeyboardDelegate, CustomCharKeyboardDelegate,PureNumberKeyboardDelegate,CustomBigCharKeyboardDelegate,SymbolKeyboardDelegate,UITextFieldDelegate>
-@property(nonatomic,retain) NSMutableDictionary *jsonDict;
 @property(nonatomic,retain) NSMutableDictionary *keyDict;
-@property(nonatomic,strong) UITextField *textField;
+@property(nonatomic,strong) CustomUITextField *textField;
 @property(nonatomic,strong) NSString *keyboardDescription;
 @property int keyboardType;
 @property(nonatomic,strong)CustomNumberKeyboard *numberKeyboardView;

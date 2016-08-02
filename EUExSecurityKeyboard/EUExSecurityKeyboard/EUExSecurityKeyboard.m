@@ -9,7 +9,9 @@
 #import "EUExSecurityKeyboard.h"
 #import "EUtility.h"
 
-
+static inline NSString * newUUID(){
+    return [NSUUID UUID].UUIDString;
+}
 @implementation EUExSecurityKeyboard
 //-(id)initWithBrwView:(EBrowserView *) eInBrwView {
 //    if (self = [super initWithBrwView:eInBrwView]) {
@@ -66,33 +68,33 @@
     return _pureNumberKeyboardView;
 }
 
--(void)open:(NSMutableArray *)inArguments {
-    NSString *jsonStr = nil;
-    if (inArguments.count > 0) {
-        jsonStr = [inArguments objectAtIndex:0];
-        self.jsonDict = [jsonStr ac_JSONValue];//将JSON类型的字符串转化为可变字典
-    }else{
-        return;
+-(NSString*)open:(NSMutableArray *)inArguments {
+    ACArgsUnpack(NSDictionary *dic) = inArguments;
+    if (dic == nil) {
+        return nil;
     }
-    float tag = [[self.jsonDict objectForKey:@"id"] floatValue];
-    float x = [[self.jsonDict objectForKey:@"x"] floatValue];
-    float y = [[self.jsonDict objectForKey:@"y"] floatValue];
-    float width = [[self.jsonDict objectForKey:@"width"] floatValue];
-    float height = [[self.jsonDict objectForKey:@"height"] floatValue];
-    BOOL isScroll = [[self.jsonDict objectForKey:@"isScrollWithWeb"] boolValue];
-    self.keyboardDescription = [self.jsonDict objectForKey:@"keyboardDescription"] ;
-    self.keyboardType = [[self.jsonDict objectForKey:@"keyboardType"] intValue];
-    UITextField* textField = [[UITextField alloc]initWithFrame:CGRectMake(x, y, width, height)];
+    NSString *idStr = stringArg(dic[@"id"]) ?: newUUID();
+    if ([_keyDict objectForKey:idStr]) {
+        return nil;
+    }
+    float x = [numberArg(dic[@"x"]) floatValue];
+    float y = [numberArg(dic[@"y"]) floatValue];
+    float width = [numberArg(dic[@"width"]) floatValue];
+    float height = [numberArg(dic[@"height"]) floatValue];
+    BOOL isScroll = [dic[@"isScrollWithWeb"] boolValue];
+    self.keyboardDescription = stringArg(dic[@"keyboardDescription"]);
+    self.keyboardType = [numberArg(dic[@"keyboardType"]) intValue];
+    CustomUITextField* textField = [[CustomUITextField alloc]initWithFrame:CGRectMake(x, y, width, height)];
     
     [textField setBorderStyle:UITextBorderStyleRoundedRect];
     
-    [_keyDict setObject:textField forKey:[NSString stringWithFormat:@"%d",(int)tag]];
+    [_keyDict setObject:textField forKey:idStr];
     NSLog(@"字典:%@",_keyDict);
     NSMutableArray *keys = [NSMutableArray array];
-    [keys addObject:[NSString stringWithFormat:@"%d",(int)tag]];
+    [keys addObject:idStr];
     self.textField = [_keyDict objectForKey:[keys lastObject]];
-    self.textField.tag = [[keys lastObject] intValue];
-    //[EUtility brwView:meBrwView addSubview:self.textField];
+    self.textField.idStr = [keys lastObject];
+    
     if (isScroll) {
         [[self.webViewEngine webScrollView] addSubview:self.textField];
     } else {
@@ -108,12 +110,12 @@
         self.textField.inputView = self.pureNumberKeyboardView;
     }
     self.textField.delegate = self;
-    
+    return idStr;
 }
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
+- (void)textFieldDidBeginEditing:(CustomUITextField *)textField{
     NSArray *keys = [_keyDict allKeys];
     for (NSString *str in keys) {
-        if (textField.tag == [str intValue] ) {
+        if ([textField.idStr isEqual:str]) {
             self.textField = [_keyDict objectForKey:str];
         }
     }
@@ -144,7 +146,7 @@
     [self.textField resignFirstResponder];
     
 }
-- (void)numberKeyBoardChange:(CGFloat) tag
+- (void)numberKeyBoardChange:(CGFloat)tag
 {
     if (tag == 10) {
         self.textField.inputView = nil;
@@ -223,14 +225,13 @@
 
 -(void)close:(NSMutableArray *)inArguments {
     if (inArguments.count > 0) {
-        NSString * idStr = [inArguments objectAtIndex:0];
-        NSArray* idArr = [idStr ac_JSONValue];
-        for (NSNumber *num in idArr) {
-            NSString *numStr = [NSString stringWithFormat:@"%d",[num intValue]];
+        ACArgsUnpack(NSArray* idArr) = inArguments;
+        for (id num in idArr) {
+            NSString *numStr = stringArg(num);
             self.textField = [_keyDict objectForKey:numStr];
             self.textField.inputView = nil;
             [self.textField removeFromSuperview];
-            
+            [_keyDict removeObjectForKey:numStr];
         }
         
     }else{
@@ -240,6 +241,7 @@
             self.textField.inputView = nil;
             [self.textField removeFromSuperview];
         }
+        [_keyDict removeAllObjects];
     }
     
     
@@ -249,10 +251,9 @@
     NSMutableArray *contentArr = [NSMutableArray array];
     NSString *contentStr = nil;
     if (inArguments.count > 0) {
-        NSString * idStr = [inArguments objectAtIndex:0];
-        NSArray* idArr = [idStr ac_JSONValue];
-        for (NSNumber *num in idArr) {
-            NSString *numStr = [NSString stringWithFormat:@"%d",[num intValue]];
+        ACArgsUnpack(NSArray* idArr) = inArguments;
+        for (id num in idArr) {
+            NSString *numStr = stringArg(num);
             self.textField = [_keyDict objectForKey:numStr];
             contentDic = @{@"content":self.textField.text,@"id":numStr};
             [contentArr addObject:contentDic];

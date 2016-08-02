@@ -16,6 +16,7 @@
 		0972A4C61C803EC50092F525 /* PureNumberKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A49C1C803EC50092F525 /* PureNumberKeyboard.m */; };
 		0972A4C71C803EC50092F525 /* SymbolKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0972A49E1C803EC50092F525 /* SymbolKeyboard.m */; };
 		2153D5191D22619D00A846F3 /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2153D5181D22619D00A846F3 /* AppCanKit.framework */; };
+		215965CB1D49FBEC0013B636 /* CustomUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 215965CA1D49FBEC0013B636 /* CustomUITextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,8 @@
 		0972A49D1C803EC50092F525 /* SymbolKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolKeyboard.h; sourceTree = "<group>"; };
 		0972A49E1C803EC50092F525 /* SymbolKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolKeyboard.m; sourceTree = "<group>"; };
 		2153D5181D22619D00A846F3 /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
+		215965C91D49FBEC0013B636 /* CustomUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomUITextField.h; sourceTree = "<group>"; };
+		215965CA1D49FBEC0013B636 /* CustomUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomUITextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				0972A49C1C803EC50092F525 /* PureNumberKeyboard.m */,
 				0972A49D1C803EC50092F525 /* SymbolKeyboard.h */,
 				0972A49E1C803EC50092F525 /* SymbolKeyboard.m */,
+				215965C91D49FBEC0013B636 /* CustomUITextField.h */,
+				215965CA1D49FBEC0013B636 /* CustomUITextField.m */,
 			);
 			path = CustomKeyboard;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				0972A4C51C803EC50092F525 /* CustomNumberKeyboard.m in Sources */,
 				0972A4C61C803EC50092F525 /* PureNumberKeyboard.m in Sources */,
 				095C8A241C76DDE5008E373A /* EUExSecurityKeyboard.m in Sources */,
+				215965CB1D49FBEC0013B636 /* CustomUITextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
