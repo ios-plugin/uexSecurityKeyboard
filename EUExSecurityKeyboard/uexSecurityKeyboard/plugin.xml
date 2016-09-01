@@ -3,8 +3,7 @@
     <plugin name="uexSecurityKeyboard">
         <method name="open" sync = "true"></method>
         <method name="close"></method>
-        <method name="getContent" sync = "true"></method>
-        
-         <method name="getData" sync = "true"></method>
+        <method name="getContent"></method>
+        <method name="getData"></method>
     </plugin>
 </uexplugins>
