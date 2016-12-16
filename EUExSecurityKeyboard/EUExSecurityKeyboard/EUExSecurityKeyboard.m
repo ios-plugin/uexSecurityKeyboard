@@ -68,25 +68,6 @@ static inline NSString * newUUID(){
     return _pureNumberKeyboardView;
 }
 
-<<<<<<< HEAD
--(void)open:(NSMutableArray *)inArguments {
-    NSString *jsonStr = nil;
-    if (inArguments.count > 0) {
-        jsonStr = [inArguments objectAtIndex:0];
-        self.jsonDict = [jsonStr JSONValue];//将JSON类型的字符串转化为可变字典
-    }else{
-        return;
-    }
-    float tag = [[self.jsonDict objectForKey:@"id"] floatValue];
-    float x = [[self.jsonDict objectForKey:@"x"] floatValue];
-    float y = [[self.jsonDict objectForKey:@"y"] floatValue];
-    float width = [[self.jsonDict objectForKey:@"width"] floatValue];
-    float height = [[self.jsonDict objectForKey:@"height"] floatValue];
-    BOOL isScroll = [[self.jsonDict objectForKey:@"isScrollWithWeb"] boolValue];
-    self.keyboardDescription = [self.jsonDict objectForKey:@"keyboardDescription"] ;
-    self.keyboardType = [[self.jsonDict objectForKey:@"keyboardType"] intValue];
-    UITextField* textField = [[UITextField alloc]initWithFrame:CGRectMake(x, y, width, height)];
-=======
 -(NSString*)open:(NSMutableArray *)inArguments {
     ACArgsUnpack(NSDictionary *dic) = inArguments;
     if (dic == nil) {
@@ -104,7 +85,6 @@ static inline NSString * newUUID(){
     self.keyboardDescription = stringArg(dic[@"keyboardDescription"]);
     self.keyboardType = [numberArg(dic[@"keyboardType"]) intValue];
     CustomUITextField* textField = [[CustomUITextField alloc]initWithFrame:CGRectMake(x, y, width, height)];
->>>>>>> origin/dev-4.0
     
     [textField setBorderStyle:UITextBorderStyleRoundedRect];
     
@@ -113,20 +93,12 @@ static inline NSString * newUUID(){
     NSMutableArray *keys = [NSMutableArray array];
     [keys addObject:idStr];
     self.textField = [_keyDict objectForKey:[keys lastObject]];
-<<<<<<< HEAD
-    self.textField.tag = [[keys lastObject] intValue];
-    if (isScroll){
-        [EUtility brwView:meBrwView addSubviewToScrollView:self.textField];
-    }else{
-        [EUtility brwView:meBrwView addSubview:self.textField];
-=======
     self.textField.idStr = [keys lastObject];
     
     if (isScroll) {
         [[self.webViewEngine webScrollView] addSubview:self.textField];
     } else {
         [[self.webViewEngine webView] addSubview:self.textField];
->>>>>>> origin/dev-4.0
     }
     
     if (self.keyboardType == 1) {
