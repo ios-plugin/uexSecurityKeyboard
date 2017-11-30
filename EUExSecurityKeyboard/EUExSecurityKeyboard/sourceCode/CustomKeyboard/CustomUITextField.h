@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomUITextField : UITextField
+
 @property(nonatomic,strong)NSString *idStr;
+@property(nonatomic,assign)BOOL isShowInputBox;
+
 @end

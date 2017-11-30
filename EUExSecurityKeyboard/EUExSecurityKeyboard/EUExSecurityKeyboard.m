@@ -75,6 +75,19 @@ static inline NSString * newUUID(){
     }
     NSString *idStr = stringArg(dic[@"id"]) ?: newUUID();
     if ([_keyDict objectForKey:idStr]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+//            NSArray *keys = [_keyDict allKeys];
+//            for (NSString *str in keys) {
+//                if ([str isEqualToString:idStr]) {
+//                    
+//                }
+//                CustomUITextField *textFieldOff = [_keyDict objectForKey:str];
+//                [textFieldOff resignFirstResponder];
+//            }
+            
+            self.textField = [_keyDict objectForKey:idStr];
+            [self.textField becomeFirstResponder];
+        });
         return nil;
     }
     float x = [numberArg(dic[@"x"]) floatValue];
@@ -82,6 +95,15 @@ static inline NSString * newUUID(){
     float width = [numberArg(dic[@"width"]) floatValue];
     float height = [numberArg(dic[@"height"]) floatValue];
     BOOL isScroll = [dic[@"isScrollWithWeb"] boolValue];
+    
+    self.isShowInputBox = YES;
+    if (dic[@"showInputBox"] != nil) {
+        BOOL isShowInputBox = [dic[@"showInputBox"] boolValue];
+        if (!isShowInputBox) {
+            self.isShowInputBox = NO;
+        }
+    }
+    
     self.keyboardDescription = stringArg(dic[@"keyboardDescription"]);
     self.keyboardType = [numberArg(dic[@"keyboardType"]) intValue];
     CustomUITextField* textField = [[CustomUITextField alloc]initWithFrame:CGRectMake(x, y, width, height)];
@@ -94,6 +116,11 @@ static inline NSString * newUUID(){
     [keys addObject:idStr];
     self.textField = [_keyDict objectForKey:[keys lastObject]];
     self.textField.idStr = [keys lastObject];
+    self.textField.isShowInputBox = self.isShowInputBox;
+    
+    if (self.isShowInputBox == NO) {
+        self.textField.frame = CGRectMake(x-2000, y-2000, width, height);
+    }
     
     if (isScroll) {
         [[self.webViewEngine webScrollView] addSubview:self.textField];
@@ -110,6 +137,12 @@ static inline NSString * newUUID(){
         self.textField.inputView = self.pureNumberKeyboardView;
     }
     self.textField.delegate = self;
+    
+    // 主线程执行：
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.textField becomeFirstResponder];
+    });
+    
     return idStr;
 }
 - (void)textFieldDidBeginEditing:(CustomUITextField *)textField{
@@ -122,11 +155,17 @@ static inline NSString * newUUID(){
     
     
 }
-- (void)numberKeyBoardInput:(NSString*) showStr
+- (void)numberKeyBoardInput:(NSString*)showStr
 {
     
     NSMutableString *textString = [[NSMutableString alloc] initWithFormat:@"%@%@",self.textField.text,showStr] ;
     self.textField.text = textString;
+    
+    if (self.textField.isShowInputBox == NO) {
+        NSDictionary *resultDic = [NSDictionary dictionaryWithObjectsAndKeys:showStr,@"inputData",@0,@"inputType",self.textField.idStr,@"id", nil];
+        NSString *resultStr = [resultDic ac_JSONFragment];
+        [self.webViewEngine callbackWithFunctionKeyPath:@"uexSecurityKeyboard.onKeyPress" arguments:ACArgsPack(resultStr)];
+    }
 }
 - (void)numberKeyBoardDelete
 {
@@ -138,6 +177,12 @@ static inline NSString * newUUID(){
         [mutableString deleteCharactersInRange:tmpRange];
     }
     self.textField.text = mutableString;
+    
+    if (self.textField.isShowInputBox == NO) {
+        NSDictionary *resultDic = [NSDictionary dictionaryWithObjectsAndKeys:@1,@"inputType",self.textField.idStr,@"id", nil];
+        NSString *resultStr = [resultDic ac_JSONFragment];
+        [self.webViewEngine callbackWithFunctionKeyPath:@"uexSecurityKeyboard.onKeyPress" arguments:ACArgsPack(resultStr)];
+    }
 }
 
 - (void)numberKeyBoardFinish
@@ -145,6 +190,11 @@ static inline NSString * newUUID(){
     
     [self.textField resignFirstResponder];
     
+    if (self.textField.isShowInputBox == NO) {
+        NSDictionary *resultDic = [NSDictionary dictionaryWithObjectsAndKeys:@2,@"inputType",self.textField.idStr,@"id", nil];
+        NSString *resultStr = [resultDic ac_JSONFragment];
+        [self.webViewEngine callbackWithFunctionKeyPath:@"uexSecurityKeyboard.onKeyPress" arguments:ACArgsPack(resultStr)];
+    }
 }
 - (void)numberKeyBoardChange:(CGFloat)tag
 {
@@ -224,22 +274,23 @@ static inline NSString * newUUID(){
 }
 
 -(void)close:(NSMutableArray *)inArguments {
+    
     if (inArguments.count > 0) {
         NSArray *idArr = ac_arrayArg(inArguments[0]);
         if (idArr) {
             ACArgsUnpack(NSArray* idArr) = inArguments;
             for (id num in idArr) {
                 NSString *numStr = stringArg(num);
-                self.textField = [_keyDict objectForKey:numStr];
-                self.textField.inputView = nil;
-                [self.textField removeFromSuperview];
+                CustomUITextField *textField = [_keyDict objectForKey:numStr];
+                textField.inputView = nil;
+                [textField removeFromSuperview];
                 [_keyDict removeObjectForKey:numStr];
             }
         }else{
             ACArgsUnpack(NSString* numStr) = inArguments;
-            self.textField = [_keyDict objectForKey:numStr];
-            self.textField.inputView = nil;
-            [self.textField removeFromSuperview];
+            CustomUITextField *textField = [_keyDict objectForKey:numStr];
+            textField.inputView = nil;
+            [textField removeFromSuperview];
             [_keyDict removeObjectForKey:numStr];
         }
         
@@ -253,6 +304,37 @@ static inline NSString * newUUID(){
         }
         [_keyDict removeAllObjects];
     }
+    
+    
+//    if (inArguments.count > 0) {
+//        NSArray *idArr = ac_arrayArg(inArguments[0]);
+//        if (idArr) {
+//            ACArgsUnpack(NSArray* idArr) = inArguments;
+//            for (id num in idArr) {
+//                NSString *numStr = stringArg(num);
+//                self.textField = [_keyDict objectForKey:numStr];
+//                self.textField.inputView = nil;
+//                [self.textField removeFromSuperview];
+//                [_keyDict removeObjectForKey:numStr];
+//            }
+//        }else{
+//            ACArgsUnpack(NSString* numStr) = inArguments;
+//            self.textField = [_keyDict objectForKey:numStr];
+//            self.textField.inputView = nil;
+//            [self.textField removeFromSuperview];
+//            [_keyDict removeObjectForKey:numStr];
+//        }
+//        
+//        
+//    }else{
+//        NSArray *keys = [_keyDict allKeys];
+//        for (NSString *str in keys) {
+//            self.textField = [_keyDict objectForKey:str];
+//            self.textField.inputView = nil;
+//            [self.textField removeFromSuperview];
+//        }
+//        [_keyDict removeAllObjects];
+//    }
     
     
 }
