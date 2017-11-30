@@ -25,5 +25,8 @@
 @property(nonatomic,strong)PureNumberKeyboard *pureNumberKeyboardView;
 @property(nonatomic,strong)CustomBigCharKeyboard *bigCharKeyboardView;
 @property(nonatomic,strong)SymbolKeyboard *symbolKeyboardView;
+
+@property(nonatomic,assign)BOOL isShowInputBox;
+
 @end
 

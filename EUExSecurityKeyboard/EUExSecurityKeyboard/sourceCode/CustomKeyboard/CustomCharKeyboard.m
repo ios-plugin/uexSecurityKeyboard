@@ -55,7 +55,7 @@
     [button setTitle:@"完 成" forState:UIControlStateNormal];
     button.contentHorizontalAlignment=UIControlContentHorizontalAlignmentCenter ;
     button.tag = 130;
-    [button setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_2_last_row_pressed.png"] forState:UIControlStateHighlighted];
+    //[button setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_2_last_row_pressed.png"] forState:UIControlStateHighlighted];
    [button addTarget:self action:@selector(numbleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:button];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -101,9 +101,15 @@
  //----------------------------------------------------
     UIView *view2 = (UIView*)[self viewWithTag:1002];
     UIButton *btn=[UIButton buttonWithType:0];
+    
     [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_fat_bg_blue.png"] forState:UIControlStateNormal];
+    [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_fat_bg_blue.png"] forState:UIControlStateHighlighted];
+    
     [btn setImage:[self imagesNamedFromCustomBundle:@"key_icon_shift_normal.png"] forState:UIControlStateNormal];
-    [btn setImage:[self imagesNamedFromCustomBundle:@"key_icon_shift_highlighted.png"] forState:UIControlStateHighlighted];
+    
+    [btn setImage:[self imagesNamedFromCustomBundle:@"key_icon_shift_normal.png"] forState:UIControlStateHighlighted];
+    //[btn setImage:[self imagesNamedFromCustomBundle:@"key_icon_shift_highlighted.png"] forState:UIControlStateHighlighted];
+    
     btn.tag = 126;
     [btn addTarget:self action:@selector(numbleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [view2 addSubview:btn];
@@ -114,9 +120,15 @@
         make.width.mas_equalTo(50);
     }];
     UIButton *btn1=[UIButton buttonWithType:0];
+    
     [btn1 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_fat_bg_blue.png"] forState:UIControlStateNormal];
+    [btn1 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_fat_bg_blue.png"] forState:UIControlStateHighlighted];
+    
     [btn1 setImage:[self imagesNamedFromCustomBundle:@"key_backspace_normal.png"] forState:UIControlStateNormal];
-    [btn1 setImage:[self imagesNamedFromCustomBundle:@"key_icon_del.png"] forState:UIControlStateHighlighted];
+    
+    [btn1 setImage:[self imagesNamedFromCustomBundle:@"key_backspace_normal.png"] forState:UIControlStateHighlighted];
+    //[btn1 setImage:[self imagesNamedFromCustomBundle:@"key_icon_del.png"] forState:UIControlStateHighlighted];
+    
     btn1.tag = 127;
     [btn1 addTarget:self action:@selector(numbleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [view2 addSubview:btn1];
@@ -133,9 +145,12 @@
     UIButton *btn3=[UIButton buttonWithType:0];
     btn3.tag = 128;
     [btn3 setTitle:@"123" forState:UIControlStateNormal];
-    [btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    //[btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [btn3 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_mood_normal.png"] forState:UIControlStateNormal];
-    [btn3 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_mood_pressed.png"] forState:UIControlStateHighlighted];
+    
+    [btn3 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_mood_normal.png"] forState:UIControlStateHighlighted];
+    //[btn3 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_mood_pressed.png"] forState:UIControlStateHighlighted];
+    
     [btn3 addTarget:self action:@selector(numbleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [view3 addSubview:btn3];
     [btn3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -146,9 +161,12 @@
     }];
     UIButton *btn4=[UIButton buttonWithType:0];
     [btn4 setTitle:@"空 格" forState:UIControlStateNormal];
-    [btn4 setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    //[btn4 setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [btn4 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_space_normal.png"] forState:UIControlStateNormal];
-    [btn4 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_space_pressed.png"] forState:UIControlStateHighlighted];
+    
+    [btn4 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_space_normal.png"] forState:UIControlStateHighlighted];
+    //[btn4 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_space_pressed.png"] forState:UIControlStateHighlighted];
+    
     [btn4 addTarget:self action:@selector(numbleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     btn4.tag = 129;
     [view3 addSubview:btn4];
@@ -161,9 +179,12 @@
     UIButton *btn5=[UIButton buttonWithType:0];
     btn5.tag = 131;
     [btn5 setTitle:@"#+=" forState:UIControlStateNormal];
-    [btn5 setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    //[btn5 setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [btn5 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_mood_normal.png"] forState:UIControlStateNormal];
-    [btn5 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_mood_pressed.png"] forState:UIControlStateHighlighted];
+    
+    [btn5 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_mood_normal.png"] forState:UIControlStateHighlighted];
+    //[btn5 setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_mood_pressed.png"] forState:UIControlStateHighlighted];
+    
     [btn5 addTarget:self action:@selector(numbleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [view3 addSubview:btn5];
     [btn5 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -182,7 +203,10 @@
         btn.titleLabel.font = [UIFont systemFontOfSize:[EUtility screenWidth] /17];
         [btn setTitle:titles[i] forState:UIControlStateNormal];
         [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_fat_normal.png"] forState:UIControlStateNormal];
-        [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_fat_bg_blue.png"] forState:UIControlStateHighlighted];
+        
+        [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_fat_normal.png"] forState:UIControlStateHighlighted];
+        //[btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_fat_bg_blue.png"] forState:UIControlStateHighlighted];
+        
         [view1 addSubview:btn];
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(5);

@@ -117,27 +117,28 @@
         lastView1 = btn;
         btn.tag = buttonTag+i;
         if ( btn.tag == 10) {
-            [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_1_last_row.png"] forState:UIControlStateNormal];
-            [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_1_last_row_pressed.png"] forState:UIControlStateHighlighted];
+            [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_2_last_row.png"] forState:UIControlStateNormal];
+            //[btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_1_last_row_pressed.png"] forState:UIControlStateHighlighted];
         }else if(btn.tag == 12){
             [btn setImage:[self imagesNamedFromCustomBundle:@"key_backspace_pressed.png"] forState:UIControlStateNormal];
-            [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_3_last_row.png"] forState:UIControlStateNormal];
-            [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_3_last_row_pressed.png"] forState:UIControlStateHighlighted];
+            [btn setImage:[self imagesNamedFromCustomBundle:@"key_backspace_pressed.png"] forState:UIControlStateHighlighted];
+            //[btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_3_last_row.png"] forState:UIControlStateNormal];
+            //[btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_3_last_row_pressed.png"] forState:UIControlStateHighlighted];
             
         }else if(btn.tag == 11){
             [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_2_last_row.png"] forState:UIControlStateNormal];
-            [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_2_last_row_pressed.png"] forState:UIControlStateHighlighted];
+            //[btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_2_last_row_pressed.png"] forState:UIControlStateHighlighted];
             
         }else {
             if (btn.tag == 1 || btn.tag == 4 || btn.tag == 7) {
                 [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_1.png"] forState:UIControlStateNormal];
-                [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_1_pressed.png"] forState:UIControlStateHighlighted];
+                //[btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_1_pressed.png"] forState:UIControlStateHighlighted];
             }else if(btn.tag == 3 || btn.tag == 6 || btn.tag == 9){
                 [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_3.png"] forState:UIControlStateNormal];
-                [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_3_pressed.png"] forState:UIControlStateHighlighted];
+                //[btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_3_pressed.png"] forState:UIControlStateHighlighted];
             }else {
                 [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_2.png"] forState:UIControlStateNormal];
-                [btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_2_pressed.png"] forState:UIControlStateHighlighted];
+                //[btn setBackgroundImage:[self imagesNamedFromCustomBundle:@"key_num_column_2_pressed.png"] forState:UIControlStateHighlighted];
             }
         }
         
