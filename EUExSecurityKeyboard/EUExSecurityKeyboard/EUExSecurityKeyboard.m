@@ -106,40 +106,42 @@ static inline NSString * newUUID(){
     
     self.keyboardDescription = stringArg(dic[@"keyboardDescription"]);
     self.keyboardType = [numberArg(dic[@"keyboardType"]) intValue];
-    CustomUITextField* textField = [[CustomUITextField alloc]initWithFrame:CGRectMake(x, y, width, height)];
-    
-    [textField setBorderStyle:UITextBorderStyleRoundedRect];
-    
-    [_keyDict setObject:textField forKey:idStr];
-    NSLog(@"字典:%@",_keyDict);
-    NSMutableArray *keys = [NSMutableArray array];
-    [keys addObject:idStr];
-    self.textField = [_keyDict objectForKey:[keys lastObject]];
-    self.textField.idStr = [keys lastObject];
-    self.textField.isShowInputBox = self.isShowInputBox;
-    
-    if (self.isShowInputBox == NO) {
-        self.textField.frame = CGRectMake(x-2000, y-2000, width, height);
-    }
-    
-    if (isScroll) {
-        [[self.webViewEngine webScrollView] addSubview:self.textField];
-    } else {
-        [[self.webViewEngine webView] addSubview:self.textField];
-    }
-    
-    if (self.keyboardType == 1) {
-        self.textField.inputView = self.numberKeyboardView;
-    }
-    else if (self.keyboardType == 2) {
-        
-    }else{
-        self.textField.inputView = self.pureNumberKeyboardView;
-    }
-    self.textField.delegate = self;
     
     // 主线程执行：
     dispatch_async(dispatch_get_main_queue(), ^{
+        
+        CustomUITextField* textField = [[CustomUITextField alloc]initWithFrame:CGRectMake(x, y, width, height)];
+        
+        [textField setBorderStyle:UITextBorderStyleRoundedRect];
+        
+        [_keyDict setObject:textField forKey:idStr];
+        NSLog(@"字典:%@",_keyDict);
+        NSMutableArray *keys = [NSMutableArray array];
+        [keys addObject:idStr];
+        self.textField = [_keyDict objectForKey:[keys lastObject]];
+        self.textField.idStr = [keys lastObject];
+        self.textField.isShowInputBox = self.isShowInputBox;
+        
+        if (self.isShowInputBox == NO) {
+            self.textField.frame = CGRectMake(x-2000, y-2000, width, height);
+        }
+        
+        if (isScroll) {
+            [[self.webViewEngine webScrollView] addSubview:self.textField];
+        } else {
+            [[self.webViewEngine webView] addSubview:self.textField];
+        }
+        
+        if (self.keyboardType == 1) {
+            self.textField.inputView = self.numberKeyboardView;
+        }
+        else if (self.keyboardType == 2) {
+            
+        }else{
+            self.textField.inputView = self.pureNumberKeyboardView;
+        }
+        self.textField.delegate = self;
+        
         [self.textField becomeFirstResponder];
     });
     

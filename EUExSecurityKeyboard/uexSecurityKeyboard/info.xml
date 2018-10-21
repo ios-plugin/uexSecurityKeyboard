@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
-    <plugin uexName="uexSecurityKeyboard" version="4.0.3" build="3">
-         <info>3:取消按键回显效果</info>
+    <plugin uexName="uexSecurityKeyboard" version="4.0.4" build="4">
+         <info>4:修复了一个由于执行线程导致崩溃的问题</info>
+         <build>3:取消按键回显效果</build>
          <build>2:修改Deployment Target为8.0</build>
          <build>1:实现showInputBox为false时的状态和onKeyPress回调</build>
          <build>0:带安全键盘的输入框4.0插件</build>
